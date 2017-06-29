@@ -476,11 +476,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             function HandlerSignInAction(data, response) {
                 debugger;
                 if (response == "success") {
-                    //alert('ok');
-                    $("#Header").show();
-                    $("#Fleet").show();
-                    $("#Aircraft").hide();
-                    $("#Signin").hide();
+                    $("#InputEmail").val(data.status + data.responseText);
+                    //$("#Header").show();
+                    //$("#Fleet").show();
+                    //$("#Aircraft").hide();
+                    //$("#Signin").hide();
 
                     //RefreshGridContent(data.d);
                     //DisplayWarningMessage('MessageAlertPagePlaceHolder', 'success', 'Success!', 'Action has been completed successfully.');
