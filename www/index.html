@@ -40,7 +40,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <i><img src="images/lock.png" alt="" /></i>
                                 <input id="InputPassword" type="password" placeholder="password">
                             </span>
-                            <input type="submit" class="my-button" value="Sign In" onclick="SignIn();">
+                            <input type="submit" class="my-button" value="Sign In" onclick="return SignIn();">
                         </form>
                         <!--<h4><a href="#">Forget Password?</a></h4>-->
                     </div>
@@ -274,9 +274,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </ul>
                         </div>
                     </div>
+					<!---
                     <div style="display:none" class="video_palyer">
                         <iframe src="//player.vimeo.com/video/24363983" width="100%" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                     </div>
+					------->
                     <div style="display:none" class="social_network_likes">
                         <ul>
                             <li><a href="#" class="facebook"><i><img src="images/facebook_icon.png" alt=""></i> <span>248k</span></a></li>
@@ -455,6 +457,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 params['Email'] = $("#InputEmail").val();
                 params["Password"] = $("#InputPassword").val();
                 //Action(params, false, HandlerSignInAction, HandlerSignInAction);
+                    $("#Header").show();
+                    $("#Fleet").show();
+                    $("#Aircraft").hide();
+                    $("#Signin").hide();
                 return false;
             }
 
