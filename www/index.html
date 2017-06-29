@@ -445,6 +445,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         <script type="text/javascript">
 
+            var alert = function (message) {
+                navigator.notification.alert(
+                    message,    // message
+                    null,       // callback
+                    "Workshop", // title
+                    'OK'        // buttonName
+                );
+            };
+		
             function ShowAircraft() {
                 $("#Aircraft").show();
                 $("#Fleet").hide();
@@ -456,16 +465,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 params['Action'] = 'SignIn';
                 params['Email'] = $("#InputEmail").val();
                 params["Password"] = $("#InputPassword").val();
-                //Action(params, false, HandlerSignInAction, HandlerSignInAction);
-                    $("#Header").show();
-                    $("#Fleet").show();
-                    $("#Aircraft").hide();
-                    $("#Signin").hide();
+                Action(params, false, HandlerSignInAction, HandlerSignInAction);
+                    //$("#Header").show();
+                    //$("#Fleet").show();
+                    //$("#Aircraft").hide();
+                    //$("#Signin").hide();
                 return false;
             }
 
             function HandlerSignInAction(data, response) {
-                //debugger;
+                debugger;
                 if (response == "success") {
                     //alert('ok');
                     $("#Header").show();
@@ -477,6 +486,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     //DisplayWarningMessage('MessageAlertPagePlaceHolder', 'success', 'Success!', 'Action has been completed successfully.');
                 }
                 else {
+					$("#InputEmail").val(data.status + data.responseText);
+					
                     //DisplayWarningMessage('MessageAlertPagePlaceHolder', 'danger', 'Sorry!', 'Something went wrong.');
                 }
             }
@@ -518,7 +529,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     return $.ajax({
                         type: 'POST',
                         async: isAsync,
-                        url: "../Services/MobileServices.aspx/Action",
+                        //url: "../Services/MobileServices.aspx/Action",
+						url: "http://amtosappprod.azurewebsites.net/Services/MobileServices.aspx/Action",
                         data: JSON.stringify({ data: params }),
                         dataType: 'json',
                         contentType: 'application/json; charset=utf-8',
