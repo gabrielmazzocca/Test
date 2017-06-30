@@ -476,7 +476,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             function HandlerSignInAction(data, response) {
                 debugger;
                 if (response == "success") {
-                    $("#InputEmail").val(data.status + data.responseText);
+                    $("#InputEmail").val(response);
                     //$("#Header").show();
                     //$("#Fleet").show();
                     //$("#Aircraft").hide();
@@ -486,7 +486,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     //DisplayWarningMessage('MessageAlertPagePlaceHolder', 'success', 'Success!', 'Action has been completed successfully.');
                 }
                 else {
-					$("#InputEmail").val(data.status + data.responseText);
+					$("#InputEmail").val(response);
 					
                     //DisplayWarningMessage('MessageAlertPagePlaceHolder', 'danger', 'Sorry!', 'Something went wrong.');
                 }
