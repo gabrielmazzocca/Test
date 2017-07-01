@@ -669,8 +669,8 @@ function DatePatternError () { pattern = "error"; };
                     return $.ajax({
                         type: 'POST',
                         async: isAsync,
-                        url: "http://localhost/amtosapp/Services/MobileServices.aspx/Action",
-						//url: "http://amtosappprod.azurewebsites.net/Services/MobileServices.aspx/Action",
+                        //url: "http://localhost/amtosapp/Services/MobileServices.aspx/Action",
+						url: "http://amtosappprod.azurewebsites.net/Services/MobileServices.aspx/Action",
                         data: JSON.stringify({ data: params }),
                         dataType: 'json',
                         contentType: 'application/json; charset=utf-8',
