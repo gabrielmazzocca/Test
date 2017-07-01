@@ -63,22 +63,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                 </div>
 
+
+				
                 <div id="Header" class="header" style="display: none">
                     <div class="header_top">
                         <div class="menu">
                             <a class="toggleMenu" href="#"><img src="images/nav.png" alt="" /></a>
                             <ul class="nav">
-                                <li><a href="#"><i><img src="images/settings.png" alt="" /></i>Settings</a></li>
+                                <!---<li><a href="#"><i><img src="images/settings.png" alt="" /></i>Settings</a></li>--->
                                 <li class="active"><a href="#"><i><img src="images/user.png" alt="" /></i>Account</a></li>
                                 <li><a href="#"><i><img src="images/mail.png" alt="" /></i>Messages <span class="messages">5</span></a></li>
-                                <li><a href="#"><i><img src="images/favourite.png" alt="" /></i>Favorites</a></li>
+                                <li><a href="#"><i><img src="images/favourite.png" alt="" /></i>Logout</a></li>
                                 <div class="clear"></div>
                             </ul>
                             <script type="text/javascript" src="js/responsive-nav.js"></script>
                         </div>
                         <div class="profile_details">
                             <div id="loginContainer">
-                                <a id="loginButton" class=""><span>Me</span></a>
+                                <a id="loginButton" class=""><span id="userNameLabel">Me</span></a>
                                 <div id="loginBox">
                                     <form id="loginForm">
                                         <fieldset id="body">
@@ -181,6 +183,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
                     </div>
 
+                <div id="logbook" class="column_right_grid" style="display: none">
+                    <div class="tweets">
+                        <h3><i><img src="images/tweets.png" alt="" /> </i> Send Log</h3>
+                        </div>
+                        <div class="newsletter">
+                            <h3>Send Log</h3>
+                            <form>
+                                <span>
+                                    <i><img src="images/cycles.png" alt="" /></i>
+                                    <input type="text" value="Enter cycles" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter cycles';}">
+                                </span>
+                                <span>
+                                    <i><img src="images/clock.png" alt="" /></i>
+                                    <input type="text" value="Enter hours" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter hours';}">
+                                </span>
+                                <span>
+                                    <i><img src="images/airplane-landing.png" alt="" /></i>
+                                    <input type="text" value="Enter landings" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter landings';}">
+                                </span>
+                                <input type="submit" class="my_button" value="Send">
+                            </form>
+                        </div>
+                    </div>
+					
 
                     <div style="display:none" class="menu_box">
                         <h3>Menu Box</h3>
@@ -494,17 +520,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         navigator.notification.vibrate(2000);
     }
 		
+		var pattern = "";
+		
+function checkDatePattern() {
+    navigator.globalization.getDatePattern(DatePattern, DatePatternError);
+}
+
+function DatePattern (date) { pattern = date.pattern; }; 
+function DatePatternError () { pattern = "error"; }; 
+		
             function ShowAircraft() {
                 $("#Aircraft").show();
+				$("#logbook").show();
+				
                 $("#Fleet").hide();
             }
 
 
             function SignIn() {
+				debugger;
                 var params = {};
                 params['Action'] = 'SignIn';
                 params['Email'] = $("#InputEmail").val();
                 params["Password"] = $("#InputPassword").val();
+				params["TimeZone"] = pattern;
+				
+				checkDatePattern();
+				
                 Action(params, false, HandlerSignInAction, HandlerSignInAction);
                     //$("#Header").show();
                     //$("#Fleet").show();
@@ -516,11 +558,69 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             function HandlerSignInAction(data, response) {
                 debugger;
                 if (response == "success") {
-                    $("#InputEmail").val(response);
-                    //$("#Header").show();
-                    //$("#Fleet").show();
-                    //$("#Aircraft").hide();
-                    //$("#Signin").hide();
+					var jsonData = JSON.parse(data.d);
+					if (jsonData.response == "OK") {
+						$("#userNameLabel").val(jsonData.userName);
+						$("#InputEmail").val(response);
+						$("#Header").show();
+						$("#Fleet").show();
+						$("#Aircraft").hide();
+						$("#Signin").hide();
+						
+						Action(params, false, HandlerAirctaftDataAction, HandlerAirctaftDataAction);
+						
+						
+					}
+					else
+					{
+						navigator.notification.alert(
+							'Invalid email or password!',  // message
+							null,       // callback
+							'Sign In',            // title
+							'Ok'                  // buttonName
+						);
+					}
+
+
+                    //RefreshGridContent(data.d);
+                    //DisplayWarningMessage('MessageAlertPagePlaceHolder', 'success', 'Success!', 'Action has been completed successfully.');
+                }
+                else {
+					$("#InputEmail").val(response);
+					
+                    //DisplayWarningMessage('MessageAlertPagePlaceHolder', 'danger', 'Sorry!', 'Something went wrong.');
+                }
+            }
+			
+            function HandlerAirctaftDataAction(data, response) {
+                debugger;
+                if (response == "success") {
+					var jsonData = JSON.parse(data.d);
+					if (jsonData.response == "OK") {
+						
+						navigator.notification.alert(
+							'HandlerAirctaftDataAction',  // message
+							null,       // callback
+							'Data',            // title
+							'Ok'                  // buttonName
+						);
+						
+						$("#userNameLabel").val(jsonData.userName);
+
+						
+										
+						
+					}
+					else
+					{
+						navigator.notification.alert(
+							'Invalid email or password!',  // message
+							null,       // callback
+							'Sign In',            // title
+							'Ok'                  // buttonName
+						);
+					}
+
 
                     //RefreshGridContent(data.d);
                     //DisplayWarningMessage('MessageAlertPagePlaceHolder', 'success', 'Success!', 'Action has been completed successfully.');
@@ -569,8 +669,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     return $.ajax({
                         type: 'POST',
                         async: isAsync,
-                        //url: "../Services/MobileServices.aspx/Action",
-						url: "http://amtosappprod.azurewebsites.net/Services/MobileServices.aspx/Action",
+                        url: "http://localhost/amtosapp/Services/MobileServices.aspx/Action",
+						//url: "http://amtosappprod.azurewebsites.net/Services/MobileServices.aspx/Action",
                         data: JSON.stringify({ data: params }),
                         dataType: 'json',
                         contentType: 'application/json; charset=utf-8',
