@@ -8,10 +8,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
     <title>Ui kits Website Template | Home :: w3layouts</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="format-detection" content="telephone=no" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
     <link href="css/nav.css" rel="stylesheet" type="text/css" media="all" />
     <link href='http://fonts.googleapis.com/css?family=Carrois+Gothic+SC' rel='stylesheet' type='text/css'>
+	
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
     <script type="text/javascript" src="js/Chart.js"></script>
@@ -26,6 +31,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!----End Calender -------->
 </head>
 <body>
+    <div id="deviceready" class="blink">
+        <p class="event listening">Connecting to Device</p>
+        <p class="event received">Device is Ready</p>
+    </div>
+	
+    <p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+    <p><a href="#" onclick="playBeep(); return false;">Play Beep</a></p>
+    <p><a href="#" onclick="vibrate(); return false;">Vibrate</a></p>
+
     <div class="main">
         <div class="wrap">
             <div >
@@ -445,6 +459,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         <script type="text/javascript">
 
+		
+		
             var alert = function (message) {
                 navigator.notification.alert(
                     message,    // message
@@ -453,6 +469,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     'OK'        // buttonName
                 );
             };
+		
+		
+		
+    // Show a custom alert
+    //
+    function showAlert() {
+        navigator.notification.alert(
+            'You are the winner!',  // message
+            'Game Over',            // title
+            'Done'                  // buttonName
+        );
+    }
+
+    // Beep three times
+    //
+    function playBeep() {
+        navigator.notification.beep(3);
+    }
+
+    // Vibrate for 2 seconds
+    //
+    function vibrate() {
+        navigator.notification.vibrate(2000);
+    }
 		
             function ShowAircraft() {
                 $("#Aircraft").show();
