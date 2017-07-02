@@ -828,7 +828,7 @@ fieldset#body {
 .column_right_grid{
 	background:#394264;
 	text-align:center;
-	padding:2em 0;
+	padding:0.1em 0;
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;

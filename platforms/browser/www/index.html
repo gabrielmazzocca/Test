@@ -68,30 +68,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
 				
-                <div id="Header" class="header" >
+                <div id="aircraftheader" class="header" >
                     <div class="header_top">
                         <div class="menu">
                             <a class="toggleMenu" href="#"><img src="images/nav.png" alt="" /></a>
                             <ul class="nav">
                                 <!---<li><a href="#"><i><img src="images/settings.png" alt="" /></i>Settings</a></li>--->
                                 <li>
-                                    <a href="#">
+                                    <a id="fleetmenu" href="#" onclick="ShowFleet();">
                                         <!--<i><img src="images/mail.png" alt="" /></i>-->
                                         <
                                         <!--<span class="messages">5</span>-->
                                     </a>
                                 </li>
-                                <li class="active"><a href="#">
+                                <!--class="active"-->
+                                <li ><a id="statusmenu" href="#" onclick="ShowAircraft();">
                                     <!--<i><img src="images/user.png" alt="" /></i>-->
-                                    Account</a></li>
-                                <li><a href="#">
+                                    STATUS</a></li>
+                                <li><a id="dueitemsmenu" href="#" onclick="ShowDueItems();">
                                     <!--<i><img src="images/mail.png" alt="" /></i>-->
-                                    Messages 
+                                        DUE ITEMS
                                     <!--<span class="messages">5</span>-->
                                     </a></li>
-                                <li><a href="#">
+                                <li><a id="logmenu" href="#" onclick="ShowLogbook();">
                                     <!--<i><img src="images/favourite.png" alt="" /></i>-->
-                                    Logout</a></li>
+                                        LOG</a></li>
                                 <div class="clear"></div>
                             </ul>
                             <script type="text/javascript" src="js/responsive-nav.js"></script>
@@ -123,7 +124,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                 </div>
 
-                <div id="Fleet" style="display:none" class="menu_box">
+                <div id="fleet" style="display:none" class="menu_box">
                     <h3>My Fleet</h3>
                     <div class="menu_box_list">
                         <ul>
@@ -195,6 +196,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <label class="digits">24.45 <i><img src="images/clock.png" alt="" /></i></label><div class="clear"></div>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="day_name">NEXT MX</span>
+                                        <label class="digits">01/01/2017<i><img src="images/clock.png" alt="" /></i></label><div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="day_name">HOURS NEXT DUE</span>
+                                        <label class="digits">10.0<i><label class="circle overdue"></label></i></label><div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="day_name">CYCLES NEXT DUE</span>
+                                        <label class="digits">10.0<i><label class="circle overdue"></label></i></label><div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="day_name">CALENDAR NEXT DUE</span>
+                                        <label class="digits">10.0<i><label class="circle overdue"></label></i></label><div class="clear"></div>
+                                    </a>
+                                </li>
                                 <!--<li>
                         <a href="#">
                             <span class="day_name">HOURS</span>&nbsp; 57.5
@@ -223,23 +248,42 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
                     </div>
 
-                <div class="column_right_grid" >
-				
-                            <!--<ul class="nav">
-                                <li><a href="#"><i><img src="images/settings.png" alt="" /></i>Settings</a></li>
-                                <li class="active"><a href="#"><i><img src="images/user.png" alt="" /></i>Account</a></li>
-                                <li><a href="#"><i><img src="images/mail.png" alt="" /></i>Messages <span class="messages">5</span></a></li>
-                                <li><a href="#"><i><img src="images/favourite.png" alt="" /></i>Logout</a></li>
-                                <div class="clear"></div>
-                            </ul>-->
-				
+                <div id="dueitems" class="weather" style="display: none">
+
+                    <div class="temp_list">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    
+                                    <span class="day_name">05-04-20</span>
+                                    <label >Description</label>
+                                    <label>Airframe</label>
+                                    <label class="digits">25 Hrs | 2 Mos <i><label class="circle overdue"></label></i></label>
+                                    
+                                    <div class="clear"></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="column_right_grid">
+
+                    <!--<ul class="nav">
+            <li><a href="#"><i><img src="images/settings.png" alt="" /></i>Settings</a></li>
+            <li class="active"><a href="#"><i><img src="images/user.png" alt="" /></i>Account</a></li>
+            <li><a href="#"><i><img src="images/mail.png" alt="" /></i>Messages <span class="messages">5</span></a></li>
+            <li><a href="#"><i><img src="images/favourite.png" alt="" /></i>Logout</a></li>
+            <div class="clear"></div>
+        </ul>-->
+
 
 
                     <div id="logbook" class="tweets" style="display:none">
-                        <h3><i><img src="images/tweets.png" alt="" /> </i> Send Log</h3>
-                        </div>
+                        <!--<h3><i><img src="images/tweets.png" alt="" /> </i> Send Log</h3>-->
+
                         <div class="newsletter">
-                            <h3>Send Log</h3>
+                            <!--<h3>Send Log</h3>-->
                             <form>
                                 <span>
                                     <i><img src="images/cycles.png" alt="" /></i>
@@ -257,7 +301,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </form>
                         </div>
                     </div>
-					
+                </div>
 
 
                     <div style="display:none" class="chart">
@@ -570,11 +614,38 @@ function checkDatePattern() {
 function DatePattern (date) { pattern = date.pattern; }; 
 function DatePatternError () { pattern = "error"; }; 
 		
-            function ShowAircraft() {
+function ShowFleet() {
+    $("#Aircraft").hide();
+    $("#fleet").show();
+    $("#dueitems").hide();
+    $("#logbook").hide();
+    $("#aircraftheader").hide();
+    
+}
+
+function ShowAircraft() {
+    $("#aircraftheader").show();
                 $("#Aircraft").show();
-				$("#logbook").show();
-				
-                $("#Fleet").hide();
+                $("#fleet").hide();
+                $("#dueitems").hide();
+                $("#logbook").hide();
+            }
+
+function ShowLogbook() {
+    $("#aircraftheader").show();
+                $("#fleet").hide();
+                $("#Aircraft").hide();
+                $("#logbook").show();
+                $("#dueitems").hide();
+                //$(this).toggleClass("active");
+            }
+
+            function ShowDueItems() {
+                $("#aircraftheader").show();
+                $("#fleet").hide();
+                $("#dueitems").show();
+                $("#Aircraft").hide();
+                $("#logbook").hide();
             }
 
 
@@ -604,7 +675,7 @@ function DatePatternError () { pattern = "error"; };
 						$("#userNameLabel").val(jsonData.userName);
 						$("#InputEmail").val(response);
 						//$("#Header").show();
-						$("#Fleet").show();
+						$("#fleet").show();
 						$("#Aircraft").hide();
 						$("#Signin").hide();
 						
