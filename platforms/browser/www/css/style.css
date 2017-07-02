@@ -60,6 +60,18 @@ body{
 	float:right;
 	margin: 15px 25px;
 }
+
+.circle {
+    background: #50597b;
+    color: #FFF;
+    float: right;
+    width: 1em;
+    height: 1em;
+    border-radius: 1em;
+}
+
+
+
 /*-------LOGIN STARTS HERE -------*/
 #loginContainer {
     position:relative;
@@ -212,21 +224,44 @@ fieldset#body {
 .menu_box_list li a span{
 	padding-left:45px;
 }
-.menu_box_list li a label{
-	background:#50597b;
-	color:#FFF;
-	font-size:1em;
-	float:right;
-	padding:3px 15px;
-	border-radius:1em;
-	-webkit-transition: all 0.5s ease-in-out;
-	-moz-transition: all 0.5s ease-in-out;
-	-o-transition: all 0.5s ease-in-out;
-	transition: all 0.5s ease-in-out;
+.menu_box_list li a label {
+    background: #50597b;
+    color: #FFF;
+    font-size: 1em;
+    float: right;
+    /* padding: 3px 15px; */
+    border-radius: 1em;
+    /* -webkit-transition: all 0.5s ease-in-out; */
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    /* transition: all 0.5s ease-in-out; */
+    width: 1em;
+    height: 1em;
 }
 .menu_box_list li a label.active,.menu_box_list li a:hover label{
 	background:#e64c65;
 }
+
+.menu_box_list li a label.overdue,.menu_box_list li a:hover label{
+	background:#e64c65;
+}
+
+.menu_box_list li a label.future,.menu_box_list li a:hover label{
+	background:#5cb85c;
+}
+
+.menu_box_list li a label.upcoming,.menu_box_list li a:hover label{
+	background:#ece654;
+}
+
+.menu_box_list li a label.nearoverdue,.menu_box_list li a:hover label{
+	background:#ec971f;
+}
+.menu_box_list li a label.pending,.menu_box_list li a:hover label{
+	background:#d4d4d4;
+}
+
+
 .menu_box_list li a.messages{
 	background-image:url(../images/mail.png);
 	background-repeat:no-repeat;
@@ -639,13 +674,13 @@ fieldset#body {
 	display:inline-block;
 }
 .temp figure{
-	font-size:1.2em;
+	font-size:1em;
 	color: #FFF;
 	text-align:center;
 	padding:0;
  }
 .temp figure span{
-	 font-size:1.2em;
+	 font-size:1em;
 	 color:#FFF;
 	 display:block;
 	 margin-top:-5px;
@@ -1174,3 +1209,4 @@ fieldset#body {
 		right: 4.4em;
    }
 }
+

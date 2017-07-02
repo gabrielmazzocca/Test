@@ -8,7 +8,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
     <title>Ui kits Website Template | Home :: w3layouts</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--
 	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+	--->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="format-detection" content="telephone=no" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
     <link href="css/nav.css" rel="stylesheet" type="text/css" media="all" />
@@ -65,20 +68,35 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
 				
-                <div id="Header" class="header" style="display: none">
+                <div id="Header" class="header" >
                     <div class="header_top">
                         <div class="menu">
                             <a class="toggleMenu" href="#"><img src="images/nav.png" alt="" /></a>
                             <ul class="nav">
                                 <!---<li><a href="#"><i><img src="images/settings.png" alt="" /></i>Settings</a></li>--->
-                                <li class="active"><a href="#"><i><img src="images/user.png" alt="" /></i>Account</a></li>
-                                <li><a href="#"><i><img src="images/mail.png" alt="" /></i>Messages <span class="messages">5</span></a></li>
-                                <li><a href="#"><i><img src="images/favourite.png" alt="" /></i>Logout</a></li>
+                                <li>
+                                    <a href="#">
+                                        <!--<i><img src="images/mail.png" alt="" /></i>-->
+                                        <
+                                        <!--<span class="messages">5</span>-->
+                                    </a>
+                                </li>
+                                <li class="active"><a href="#">
+                                    <!--<i><img src="images/user.png" alt="" /></i>-->
+                                    Account</a></li>
+                                <li><a href="#">
+                                    <!--<i><img src="images/mail.png" alt="" /></i>-->
+                                    Messages 
+                                    <!--<span class="messages">5</span>-->
+                                    </a></li>
+                                <li><a href="#">
+                                    <!--<i><img src="images/favourite.png" alt="" /></i>-->
+                                    Logout</a></li>
                                 <div class="clear"></div>
                             </ul>
                             <script type="text/javascript" src="js/responsive-nav.js"></script>
                         </div>
-                        <div class="profile_details">
+                        <div class="profile_details" style="display: none">
                             <div id="loginContainer">
                                 <a id="loginButton" class=""><span id="userNameLabel">Me</span></a>
                                 <div id="loginBox">
@@ -105,10 +123,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                 </div>
 
-                <div id="Fleet" style="display: none">
+                <div id="Fleet" style="display:none" class="menu_box">
+                    <h3>My Fleet</h3>
+                    <div class="menu_box_list">
+                        <ul>
+                            <!--class="active"-->
+                            <li><a href="#" class="invites" onclick="ShowAircraft();"><span>LV-FKQ</span><label class="circle overdue"></label><div class="clear"></div></a></li>
+                            <li><a href="#" class="invites"><span>LV-BYD</span><label class="circle overdue"></label><div class="clear"></div></a></li>
+                            <li><a href="#" class="invites"><span>LV-TYN</span><label class="circle upcoming"></label><div class="clear"></div></a></li>
+                            <li><a href="#" class="invites"><span>LV-TTT</span><label class="circle nearoverdue"></label><div class="clear"></div></a></li>
+                            <li><a href="#" class="invites"><span>LV-TER</span><label class="circle future"></label><div class="clear"></div></a></li>
+                            <li><a href="#" class="invites"><span>LV-TER</span><label class="circle pending"></label><div class="clear"></div></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="Fleet1" style="display: none">
                     <div class="articles_list">
                         <ul>
-                            <li><a href="#" onclick="ShowAircraft();" class="red"> <img src="images/comments.png" alt="" /> LV-GWA</a></li>
+                            <li><a href="#Aircraft" onclick="ShowAircraft();" class="red"> <img src="images/comments.png" alt="" /> LV-GWA</a></li>
                             <li><a href="#" class="purple"> <img src="images/views.png" alt="" /> LV-FKQ</a></li>
                             <li><a href="#" class="yellow"> <img src="images/likes.png" alt="" /> LV-BYD</a></li>
                             <li><a href="#" class="yellow"> <img src="images/likes.png" alt="" /> LV-TYN</a></li>
@@ -119,13 +152,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                 </div>
 
-
+                <!--<div class="week-month-year">
+                    class="active"
+                    <p><a href="#">Last Actuals</a></p>
+                    <p><a href="#">Due Items</a></p>
+                    <p><a href="#logbook" onclick="ShowLogbook();">Log Book</a></p>
+                    <p><a href="#">Message</a></p>
+                    <div class="clear"></div>
+                </div>-->
                     <div id="Aircraft" class="weather" style="display: none">
                         <h3><i><img src="images/location.png" alt="" /> </i> LV-GWA</h3>
                         <div class="today_temp">
                             <div class="temp">
                                 <!--<figure>24 items<span>Overdue</span></figure>-->
-                                <figure>24 items<span>Overdue</span></figure>
+                                <figure><span>Overdue (24 items)</span></figure>
                             </div>
                             <!--<img src="images/sun.png" alt="" />-->
                         </div>
@@ -183,8 +223,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
                     </div>
 
-                <div id="logbook" class="column_right_grid" style="display: none">
-                    <div class="tweets">
+                <div class="column_right_grid" >
+				
+                            <!--<ul class="nav">
+                                <li><a href="#"><i><img src="images/settings.png" alt="" /></i>Settings</a></li>
+                                <li class="active"><a href="#"><i><img src="images/user.png" alt="" /></i>Account</a></li>
+                                <li><a href="#"><i><img src="images/mail.png" alt="" /></i>Messages <span class="messages">5</span></a></li>
+                                <li><a href="#"><i><img src="images/favourite.png" alt="" /></i>Logout</a></li>
+                                <div class="clear"></div>
+                            </ul>-->
+				
+
+
+                    <div id="logbook" class="tweets" style="display:none">
                         <h3><i><img src="images/tweets.png" alt="" /> </i> Send Log</h3>
                         </div>
                         <div class="newsletter">
@@ -208,18 +259,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
 					
 
-                    <div style="display:none" class="menu_box">
-                        <h3>Menu Box</h3>
-                        <div class="menu_box_list">
-                            <ul>
-                                <li><a href="#" class="messages"><span>Messages</span><label class="digits">24</label><div class="clear"></div></a></li>
-                                <li class="active"><a href="#" class="invites"><span>Invites</span><label class="digits active">3</label><div class="clear"></div></a></li>
-                                <li><a href="#" class="events"><span>Events</span><label class="digits">5</label><div class="clear"></div></a></li>
-                                <li><a href="#" class="account_settings"><span>Account Settings</span></a></li>
-                                <li><a href="#" class="statistics"><span>Statistics</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
+
                     <div style="display:none" class="chart">
                         <h3>Os Audience Stats</h3>
                         <div class="diagram">
@@ -484,9 +524,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         </div>
         <script type="text/javascript">
-
-		
-		
+            $(function() {
+                SignIn();
+            });
+ 
             var alert = function (message) {
                 navigator.notification.alert(
                     message,    // message
@@ -538,14 +579,14 @@ function DatePatternError () { pattern = "error"; };
 
 
             function SignIn() {
-				debugger;
+				//debugger;
                 var params = {};
                 params['Action'] = 'SignIn';
                 params['Email'] = $("#InputEmail").val();
                 params["Password"] = $("#InputPassword").val();
 				params["TimeZone"] = pattern;
 				
-				checkDatePattern();
+				//checkDatePattern();
 				
                 Action(params, false, HandlerSignInAction, HandlerSignInAction);
                     //$("#Header").show();
@@ -556,13 +597,13 @@ function DatePatternError () { pattern = "error"; };
             }
 
             function HandlerSignInAction(data, response) {
-                debugger;
+                //debugger;
                 if (response == "success") {
 					var jsonData = JSON.parse(data.d);
 					if (jsonData.response == "OK") {
 						$("#userNameLabel").val(jsonData.userName);
 						$("#InputEmail").val(response);
-						$("#Header").show();
+						//$("#Header").show();
 						$("#Fleet").show();
 						$("#Aircraft").hide();
 						$("#Signin").hide();
@@ -593,7 +634,7 @@ function DatePatternError () { pattern = "error"; };
             }
 			
             function HandlerAirctaftDataAction(data, response) {
-                debugger;
+                //debugger;
                 if (response == "success") {
 					var jsonData = JSON.parse(data.d);
 					if (jsonData.response == "OK") {
