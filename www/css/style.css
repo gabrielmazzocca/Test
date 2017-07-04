@@ -862,7 +862,7 @@ fieldset#body {
 .column_right_grid span i img{
 	vertical-align:middle;
 }
-.column_right_grid input[type="text"],.column_right_grid input[type="password"]{
+.column_right_grid input[type="text"],.column_right_grid input[type="password"],.column_right_grid textarea{
 	padding:10px;
     color:#FFF;
     font-size:1em;

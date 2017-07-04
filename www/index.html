@@ -129,8 +129,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="menu_box_list">
                         <ul>
                             <!--class="active"-->
-                            <li><a href="#" class="invites" onclick="ShowAircraft();"><span>LV-FKQ</span><label class="circle overdue"></label><div class="clear"></div></a></li>
-                            <li><a href="#" class="invites"><span>LV-BYD</span><label class="circle overdue"></label><div class="clear"></div></a></li>
+                            <li><a href="#" class="invites" onclick="ShowAircraft();"><span>LV-FKQ</span><img src="images/status-overdue.png" alt="" style="vertical-align:middle;float:right;"><div class="clear"></div></a></li>
+                            <li><a href="#" class="invites"><span>LV-BYD</span><img src="images/status-future.png" alt="" style="vertical-align:middle;float:right;"><div class="clear"></div></a></li>
                             <li><a href="#" class="invites"><span>LV-TYN</span><label class="circle upcoming"></label><div class="clear"></div></a></li>
                             <li><a href="#" class="invites"><span>LV-TTT</span><label class="circle nearoverdue"></label><div class="clear"></div></a></li>
                             <li><a href="#" class="invites"><span>LV-TER</span><label class="circle future"></label><div class="clear"></div></a></li>
@@ -174,6 +174,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <ul>
                                 <li>
                                     <a href="#">
+                                        <span class="day_name">LOG  DATE</span>
+                                        <label class="digits">01/01/2017 <i><img src="images/calendar.png" alt="" /></i></label><div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
                                         <span class="day_name">HOURS</span>
                                         <label class="digits">25.5 <i><img src="images/clock.png" alt="" /></i></label><div class="clear"></div>
                                     </a>
@@ -199,25 +205,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <li>
                                     <a href="#">
                                         <span class="day_name">NEXT MX</span>
-                                        <label class="digits">01/01/2017<i><img src="images/clock.png" alt="" /></i></label><div class="clear"></div>
+                                        <label class="digits">01/01/2017 <i><img src="images/clock.png" alt="" /></i></label><div class="clear"></div>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <span class="day_name">HOURS NEXT DUE</span>
-                                        <label class="digits">10.0<i><label class="circle overdue"></label></i></label><div class="clear"></div>
+                                        <label class="digits">10.0 <i><img src="images/status-overdue.png" alt="" ></i></label><div class="clear"></div>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <span class="day_name">CYCLES NEXT DUE</span>
-                                        <label class="digits">10.0<i><label class="circle overdue"></label></i></label><div class="clear"></div>
+                                        <label class="digits">10.0 <i><img src="images/status-overdue.png" alt="" ></i></label><div class="clear"></div>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <span class="day_name">CALENDAR NEXT DUE</span>
-                                        <label class="digits">10.0<i><label class="circle overdue"></label></i></label><div class="clear"></div>
+                                        <label class="digits">10.0 <i><img src="images/status-future.png" alt=""></i></label><div class="clear"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="day_name">RICARDO ALTAMIRA</span>
+                                        <label class="digits"> <i><img src="images/mail.png" alt=""></i></label><div class="clear"></div>
                                     </a>
                                 </li>
                                 <!--<li>
@@ -470,7 +482,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <form>
                             <span>
                                 <i><img src="images/mail.png" alt="" /></i>
-                                <input type="text" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}">
+                                <!--<input type="text" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}">-->
+                                <textarea rows="4" cols="50" value="Enter your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your email';}" style="height: 100px; margin: 0px; width: 226px; resize: none;"></textarea>
                             </span>
                             <input type="submit" class="my_button" value="Subscribe">
                         </form>
