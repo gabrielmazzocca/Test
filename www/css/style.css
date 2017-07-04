@@ -212,7 +212,7 @@ fieldset#body {
 	color:#FFF;
 	font-size:1em;
 	border-bottom:1px solid #1f253d;
-	padding:20px 30px;
+	padding:13px 30px;
 	-webkit-transition: all 0.5s ease-in-out;
 	-moz-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
@@ -273,7 +273,7 @@ fieldset#body {
 .menu_box_list li a.invites{
 	background-image:url(../images/invites.png);
 	background-repeat:no-repeat;
-	background-position:30px  13px;
+	background-position:30px 7px;
 }
 .menu_box_list li a.invites:hover,.menu_box_list li.active a{
 	background-image:url(../images/invites-hover.png);
